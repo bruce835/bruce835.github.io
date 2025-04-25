@@ -34,7 +34,7 @@
 		<img src="Images/4_2025/4_24_git.png" alt="Git Hub Commits" width="400"></img>
 		<p> But before I delve into that, I should probably explain what I have managed to implement thus far.</p>
 		<img src="Images/4_2025/4_24_f01.png" alt='"An IDE console outputting "Welcome to Slay The Orc King"' width="400"</img>
-		<p>This player name prompt is essential to the load process.<br>
+		<div id="post"> <p>This player name prompt is essential to the load process.<br>
 		After the player inputs their name, the program will check for a player save file<br>
 		of that name, create it if it does not exist, and set player stats and room number<br>
 		to the information in that file. THIS IS SADLY CASE-SENSITIVE FOR NOW, SUE ME.<br>
@@ -67,6 +67,43 @@
 		This is part of an ongoing effort to clean and beautify my code. What you just witnessed is FAR<br>
 		from the worst nesting in my code. You absolutely do NOT want to see how bad it gets. Of course,<br>
 		I'm going to show you anyways...in the next devlog(maybe, my priorities tend to get jumbled).</p>
+		</div>
+		
+		<div id="post">
+			<h3> 4/25 </h3>
+			<p> I don't plan on these logs being daily, but this demands its own log. I said in<br>
+			my first log that I had an inefficient load system. Well, I made it more efficient.<br>
+			Below is the old code, WARNING: NOT FOR THE FAINT OF HEART.</p>
+			<img src="Images/4_2025/25_f01.png" alt="HORRIBLE HORRIBLE CODE"></img>
+			<img src="Images/4_2025/25_f03.png" alt="MORE TERRIBLE HORRIBLE NO GOOD VERY BAD CODE"></img>
+			<p>What you are looking at is quite possibly the worst code I have ever written.<br>
+			Prior to setting up a save functionality in PlayerController.cpp, I would try to<br>
+			open an ifstream at the target player save file, creating an fstream if that<br>
+			file did not exist. I then closed the fstream, got the player room number<br>
+			from the script with a the ifstream, closed the ifstream, opened an ofstream,<br>
+			REWROTE THE PLAYERNAME AND PLAYER ROOM, finally passing this information to<br>
+			the player controller script. But after creating the save functionality on<br>
+			my player controller, I realized I can do all this SO MUCH EASIER IN THAT SCRIPT<br>
+			without having to open and close all those i/o/fstreams in SlayTheOrcKing.cpp.</p>
+			<p>Seeing as, at this point, I had now given PlayerController.cpp the ability<br>
+			to create an ifstream, read it, set player stats to the data in that file,<br>
+			and also write player stats to it through an ofstream, I had almost<br>
+			everything in place already to make this work without all the awful code<br>
+			you just saw. I simply declared my PlayerController playerController()<br>
+			constructor a bit earlier and write a few lines that honestly I already<br>
+			forgot while writing this post. I no longer needed to read player room<br>
+			from SlayTheOrcKing.cpp as I had already set this up while creating the<br>
+			save method in PlayerController.cpp. I honestly feel a little dizzy typing<br>
+			all this in VIM right now. VIM is cool but it makes my head hurt a bit.<br>
+			I've been writing my game in eclipse, and learning VIM with my webdev.<br>
+			I'm weird like that, I guess. Anyways, below is better code. (Yes, I<br>
+			know directly setting player to playerName from here is redundant,<br>
+			I JUST SAW THAT WHILE WRITING THIS, SUE ME.</p>
+			<img src="Images/4_2025/25_f02.png" alt="better code"></img>
+		</div>
+		<p id="end"> This is the end of my website. If you have read this far, you<br>
+		should know that I don't care enough to implement a decent looking bottom<br>
+		margin for this website right now. LEAVE ME ALONE.</p>
 	</body>
 </html>
 
