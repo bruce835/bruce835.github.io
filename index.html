@@ -29,6 +29,101 @@
 			log of Slay The Orc King(I did NOT in fact begin this devlog at the start of<br>
 			the actual development. SUE ME.)
 		</p>
+
+		
+                <div id="post">
+                        <h3>4/27</h3>
+                        <p>FINE! I guess these are just daily now. For some reason I feel I must post every change.<br>
+                        So I FINALLY FINALLY FINALLY got save to run on quit. It literally just took my one more line <br>
+                        of code, not sure why I didn't do it before(maybe 2 lines? brain no worky). Anywho, <br>
+                        I must say this is going EXCEEDINGLY WELL<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_01.png"></img>
+                        <p>Here you see evidence of working save system, with second room player reaction now<br>
+                        outputting after player left off in that room during last session. I am exceedingly<br>
+                        happy about this, or at least would be if I could feel things. Programming has made me numb.<br>
+                        to simplify prompting for playerinput, I made it a function:<br>
+<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_02.png"></img>
+                        <p>There, I made it look all pretty. Yeah, yeah, abbreviated function name, but if I<br>
+                        had to type out playerInput() (not that specifically because playerInput is already a variable<br>
+                        name) or something similar, it would almost defeat the point. Also, while trying to pull up<br>
+                        vim(which I've pretty much completely swapped to), I accidentally reminded myself of a funny<br>
+                        detail I added:<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_03.png"></img>
+                        <p>This was implemented in debugging: before, if the player inputted an invalid command, the game<br>
+                        would just break. No input prompt, no getline cin, nothing. Just a blank terminal line. Fun.<br>
+                        So, that's pretty much it(am I copying penguinz0???)<br>
+                        </p>
+                </div>
+
+
+		<div id="post">
+			<h3>4/26</h3>
+			<p>Added an int called "stage" that tracks major progress points, including<br>
+			getting past the new expository text at the start<br>
+			(Which currently will run even if the playersave is not new, will fix later)<br>
+			I'm mainly making this post to test out my new program to automate the posting process.<br>
+			</p>
+
+			<img src="Images/4_2025/26_f01.png"></img>
+			<p>Above is the expository text mentioned. This program is coming along quite niclely,<br>
+			I must say. Regarding the new stage variable, I realized while implementing this<br>
+			that my program has a scaling issue. Whenever I add a new stat to the player<br>
+			controller(which, to be fair, should not happen regularly), I have to modify             <br>
+			the existing code to accomodate the new line on the player save file.<br>
+			</p>
+
+			<img src="Images/4_2025/26_f02.png"></img>
+			<p>Admittedly, this is very bad code. I want to make this more scaleable, but its not <br>
+			my #1 priority at the moment. I need to finally get my save to run every time<br>
+			the player quits. Also, secondary gamestate(details like what npc dialogue <br>
+			have you been through, what reactions has the player character already given, etc.)<br>
+			will probably be saved on a seperate save file(THIS IS PROBABLY NOT EFFICIENT).<br>
+			This can be likely avoided if I learn to scale PlayerController.cpp properly.<br>
+			Anyways, that's pretty much it.<br>
+			</p>
+		</div>
+
+
+		<div id="post">
+			<h3> 4/25 </h3>
+			<p> I don't plan on these logs being daily, but this demands its own log. I said in<br>
+			my first log that I had an inefficient load system. Well, I made it more efficient.<br>
+			Below is the old code, WARNING: NOT FOR THE FAINT OF HEART.</p>
+			<img src="Images/4_2025/25_f01.png" alt="HORRIBLE HORRIBLE CODE"></img>
+			<img src="Images/4_2025/25_f03.png" alt="MORE TERRIBLE HORRIBLE NO GOOD VERY BAD CODE"></img>
+			<p>What you are looking at is quite possibly the worst code I have ever written.<br>
+			Prior to setting up a save functionality in PlayerController.cpp, I would try to<br>
+			open an ifstream at the target player save file, creating an fstream if that<br>
+			file did not exist. I then closed the fstream, got the player room number<br>
+			from the script with a the ifstream, closed the ifstream, opened an ofstream,<br>
+			REWROTE THE PLAYERNAME AND PLAYER ROOM, finally passing this information to<br>
+			the player controller script. But after creating the save functionality on<br>
+			my player controller, I realized I can do all this SO MUCH EASIER IN THAT SCRIPT<br>
+			without having to open and close all those i/o/fstreams in SlayTheOrcKing.cpp.</p>
+			<p>Seeing as, at this point, I had now given PlayerController.cpp the ability<br>
+			to create an ifstream, read it, set player stats to the data in that file,<br>
+			and also write player stats to it through an ofstream, I had almost<br>
+			everything in place already to make this work without all the awful code<br>
+			you just saw. I simply declared my PlayerController playerController()<br>
+			constructor a bit earlier and write a few lines that honestly I already<br>
+			forgot while writing this post. I no longer needed to read player room<br>
+			from SlayTheOrcKing.cpp as I had already set this up while creating the<br>
+			save method in PlayerController.cpp. I honestly feel a little dizzy typing<br>
+			all this in VIM right now. VIM is cool but it makes my head hurt a bit.<br>
+			I've been writing my game in eclipse, and learning VIM with my webdev.<br>
+			I'm weird like that, I guess. Anyways, below is better code. (Yes, I<br>
+			know directly setting player to playerName from here is redundant,<br>
+			I JUST SAW THAT WHILE WRITING THIS, SUE ME.</p>
+			<img src="Images/4_2025/25_f02.png" alt="better code"></img>
+		</div>
+
 		<h3> 4/24 </h3>
 		<p> Today I cleaned up a lot of code and got my save(sort of)working.</p>
 		<img src="Images/4_2025/4_24_git.png" alt="Git Hub Commits" width="400"></img>
@@ -68,42 +163,14 @@
 		from the worst nesting in my code. You absolutely do NOT want to see how bad it gets. Of course,<br>
 		I'm going to show you anyways...in the next devlog(maybe, my priorities tend to get jumbled).</p>
 		</div>
-		
-		<div id="post">
-			<h3> 4/25 </h3>
-			<p> I don't plan on these logs being daily, but this demands its own log. I said in<br>
-			my first log that I had an inefficient load system. Well, I made it more efficient.<br>
-			Below is the old code, WARNING: NOT FOR THE FAINT OF HEART.</p>
-			<img src="Images/4_2025/25_f01.png" alt="HORRIBLE HORRIBLE CODE"></img>
-			<img src="Images/4_2025/25_f03.png" alt="MORE TERRIBLE HORRIBLE NO GOOD VERY BAD CODE"></img>
-			<p>What you are looking at is quite possibly the worst code I have ever written.<br>
-			Prior to setting up a save functionality in PlayerController.cpp, I would try to<br>
-			open an ifstream at the target player save file, creating an fstream if that<br>
-			file did not exist. I then closed the fstream, got the player room number<br>
-			from the script with a the ifstream, closed the ifstream, opened an ofstream,<br>
-			REWROTE THE PLAYERNAME AND PLAYER ROOM, finally passing this information to<br>
-			the player controller script. But after creating the save functionality on<br>
-			my player controller, I realized I can do all this SO MUCH EASIER IN THAT SCRIPT<br>
-			without having to open and close all those i/o/fstreams in SlayTheOrcKing.cpp.</p>
-			<p>Seeing as, at this point, I had now given PlayerController.cpp the ability<br>
-			to create an ifstream, read it, set player stats to the data in that file,<br>
-			and also write player stats to it through an ofstream, I had almost<br>
-			everything in place already to make this work without all the awful code<br>
-			you just saw. I simply declared my PlayerController playerController()<br>
-			constructor a bit earlier and write a few lines that honestly I already<br>
-			forgot while writing this post. I no longer needed to read player room<br>
-			from SlayTheOrcKing.cpp as I had already set this up while creating the<br>
-			save method in PlayerController.cpp. I honestly feel a little dizzy typing<br>
-			all this in VIM right now. VIM is cool but it makes my head hurt a bit.<br>
-			I've been writing my game in eclipse, and learning VIM with my webdev.<br>
-			I'm weird like that, I guess. Anyways, below is better code. (Yes, I<br>
-			know directly setting player to playerName from here is redundant,<br>
-			I JUST SAW THAT WHILE WRITING THIS, SUE ME.</p>
-			<img src="Images/4_2025/25_f02.png" alt="better code"></img>
-		</div>
+<!-- ENDOFPOST -->	
+
 		<p id="end"> This is the end of my website. If you have read this far, you<br>
 		should know that I don't care enough to implement a decent looking bottom<br>
 		margin for this website right now. LEAVE ME ALONE.</p>
 	</body>
 </html>
+
+
+
 
