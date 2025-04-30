@@ -2,6 +2,13 @@
 p #08906B
 h #A16FA7
 bg #53FCCF*/
+.icon {
+    background: url('Icon.ico');
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
 body {
   background-color: #53FCCF;
  }
