@@ -15,6 +15,7 @@ body {
 h2 {
 	font-size: 38px;
 	color: #A16FA7;
+	text-align: center;
  }
 
  #STOK_DEVLOG {
@@ -52,4 +53,11 @@ h2 {
 	font-size: 16px;
 	padding-top: 30px;
 	color: #6B0890;
+}
+
+#nav {
+	  display: inline-block;
+	  font-size: 20px;
+	  text-align: center;
+	  float: right;
 }

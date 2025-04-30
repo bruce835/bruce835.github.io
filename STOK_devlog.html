@@ -1,0 +1,195 @@
+<html>
+	<header>	
+       		<title>Robin Wells</title>
+		 <link rel="stylesheet" href="styles.css">
+	</header>
+	
+	<div id="nav">
+		<a href="index.html">Home</a>
+		<a href="STOK_devlog.html">Slay The Orc King</a>
+		<a href="about.html">About</a>
+		<a href="https://github.com/bruce835">Github</a>
+	</div>
+
+	<br>
+
+	<body>
+		<div id="STOK_DEVLOG">
+			<h2>
+				The Creation of Slay The Orc King
+			</h2>
+		</div>
+		
+		<p id="STOK_DEVLOG_INTRO">
+			Slay The Orc King is a WIP text-based adventure rpg created by yours truly<br>
+			for the primary purpose of teaching myself C++. Ironically, I'm unlikely to<br>
+			use this knowledge for its originally intended purpose because while I <br>
+			planned to rebuild a WIP Unity game of mine in Unreal, I'm now considering<br>
+			scrapping that entirely and going back to Unity with C#(because Unreal is not ideal<br>
+			for 2-Dimensional games). I find a certain charm in text-based games,<br>
+			perhaps their simplicity, or their ability to easily represent scenarios<br>
+			that would otherwise be rather difficult to produce. This is the development<br>
+			log of Slay The Orc King(I did NOT in fact begin this devlog at the start of<br>
+			the actual development. SUE ME.)
+		</p>
+		<div id="post">
+			<h3>4/30</h3>
+			<p>OKAY, I finally got a manual save and revised my save system to now support, get this: MULTIPLE SAVES FOR THE SAME CHARACTER.<br>
+			Yeah, yeah, should have done that to start. What can I say, my priorities suck.<br>
+			So, I definitely want to have all npc interaction data and player reactions tracked on<br>
+			the one save file. That'll be.....fun. I'll figure it out. Anyways, here is pretty save system.<br>
+			</p>
+
+			<img src="Images/4_2025/30_01.png"></img>
+
+			<img src="Images/4_2025/30_02.png"></img>
+
+			<p>Not all of the code, but the big highlights. Example PlayerSave folder:<br>
+			</p>
+
+			<img src="Images/4_2025/30_03.png"></img>
+
+			<p>Need to properly list available saves. I've written the code, broke stuff, commented it out<br>
+			as it wasn't technically essential, and now tbh I don't even know if it still exists. Easy<br>
+			to do, though. Anyways, peace(I feel like I need an outro).<br>
+			</p>
+		</div>
+		
+                <div id="post">
+                        <h3>4/27</h3>
+                        <p>FINE! I guess these are just daily now. For some reason I feel I must post every change.<br>
+                        So I FINALLY FINALLY FINALLY got save to run on quit. It literally just took my one more line <br>
+                        of code, not sure why I didn't do it before(maybe 2 lines? brain no worky). Anywho, <br>
+                        I must say this is going EXCEEDINGLY WELL<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_01.png"></img>
+                        <p>Here you see evidence of working save system, with second room player reaction now<br>
+                        outputting after player left off in that room during last session. I am exceedingly<br>
+                        happy about this, or at least would be if I could feel things. Programming has made me numb.<br>
+                        to simplify prompting for playerinput, I made it a function:<br>
+<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_02.png"></img>
+                        <p>There, I made it look all pretty. Yeah, yeah, abbreviated function name, but if I<br>
+                        had to type out playerInput() (not that specifically because playerInput is already a variable<br>
+                        name) or something similar, it would almost defeat the point. Also, while trying to pull up<br>
+                        vim(which I've pretty much completely swapped to), I accidentally reminded myself of a funny<br>
+                        detail I added:<br>
+                        </p>
+
+                        <img src="Images/4_2025/27_03.png"></img>
+                        <p>This was implemented in debugging: before, if the player inputted an invalid command, the game<br>
+                        would just break. No input prompt, no getline cin, nothing. Just a blank terminal line. Fun.<br>
+                        So, that's pretty much it(am I copying penguinz0???)<br>
+                        </p>
+                </div>
+
+
+		<div id="post">
+			<h3>4/26</h3>
+			<p>Added an int called "stage" that tracks major progress points, including<br>
+			getting past the new expository text at the start<br>
+			(Which currently will run even if the playersave is not new, will fix later)<br>
+			I'm mainly making this post to test out my new program to automate the posting process.<br>
+			</p>
+
+			<img src="Images/4_2025/26_f01.png"></img>
+			<p>Above is the expository text mentioned. This program is coming along quite niclely,<br>
+			I must say. Regarding the new stage variable, I realized while implementing this<br>
+			that my program has a scaling issue. Whenever I add a new stat to the player<br>
+			controller(which, to be fair, should not happen regularly), I have to modify             <br>
+			the existing code to accomodate the new line on the player save file.<br>
+			</p>
+
+			<img src="Images/4_2025/26_f02.png"></img>
+			<p>Admittedly, this is very bad code. I want to make this more scaleable, but its not <br>
+			my #1 priority at the moment. I need to finally get my save to run every time<br>
+			the player quits. Also, secondary gamestate(details like what npc dialogue <br>
+			have you been through, what reactions has the player character already given, etc.)<br>
+			will probably be saved on a seperate save file(THIS IS PROBABLY NOT EFFICIENT).<br>
+			This can be likely avoided if I learn to scale PlayerController.cpp properly.<br>
+			Anyways, that's pretty much it.<br>
+			</p>
+		</div>
+
+
+		<div id="post">
+			<h3> 4/25 </h3>
+			<p> I don't plan on these logs being daily, but this demands its own log. I said in<br>
+			my first log that I had an inefficient load system. Well, I made it more efficient.<br>
+			Below is the old code, WARNING: NOT FOR THE FAINT OF HEART.</p>
+			<img src="Images/4_2025/25_f01.png" alt="HORRIBLE HORRIBLE CODE"></img>
+			<img src="Images/4_2025/25_f03.png" alt="MORE TERRIBLE HORRIBLE NO GOOD VERY BAD CODE"></img>
+			<p>What you are looking at is quite possibly the worst code I have ever written.<br>
+			Prior to setting up a save functionality in PlayerController.cpp, I would try to<br>
+			open an ifstream at the target player save file, creating an fstream if that<br>
+			file did not exist. I then closed the fstream, got the player room number<br>
+			from the script with a the ifstream, closed the ifstream, opened an ofstream,<br>
+			REWROTE THE PLAYERNAME AND PLAYER ROOM, finally passing this information to<br>
+			the player controller script. But after creating the save functionality on<br>
+			my player controller, I realized I can do all this SO MUCH EASIER IN THAT SCRIPT<br>
+			without having to open and close all those i/o/fstreams in SlayTheOrcKing.cpp.</p>
+			<p>Seeing as, at this point, I had now given PlayerController.cpp the ability<br>
+			to create an ifstream, read it, set player stats to the data in that file,<br>
+			and also write player stats to it through an ofstream, I had almost<br>
+			everything in place already to make this work without all the awful code<br>
+			you just saw. I simply declared my PlayerController playerController()<br>
+			constructor a bit earlier and write a few lines that honestly I already<br>
+			forgot while writing this post. I no longer needed to read player room<br>
+			from SlayTheOrcKing.cpp as I had already set this up while creating the<br>
+			save method in PlayerController.cpp. I honestly feel a little dizzy typing<br>
+			all this in VIM right now. VIM is cool but it makes my head hurt a bit.<br>
+			I've been writing my game in eclipse, and learning VIM with my webdev.<br>
+			I'm weird like that, I guess. Anyways, below is better code. (Yes, I<br>
+			know directly setting player to playerName from here is redundant,<br>
+			I JUST SAW THAT WHILE WRITING THIS, SUE ME.</p>
+			<img src="Images/4_2025/25_f02.png" alt="better code"></img>
+		</div>
+		<div id = "post">
+		<h3> 4/24 </h3>
+		<p> Today I cleaned up a lot of code and got my save(sort of)working.</p>
+		<img src="Images/4_2025/4_24_git.png" alt="Git Hub Commits" width="400"></img>
+		<p> But before I delve into that, I should probably explain what I have managed to implement thus far.</p>
+		<img src="Images/4_2025/4_24_f01.png" alt='"An IDE console outputting "Welcome to Slay The Orc King"' width="400"</img>
+		<div id="post"> <p>This player name prompt is essential to the load process.<br>
+		After the player inputs their name, the program will check for a player save file<br>
+		of that name, create it if it does not exist, and set player stats and room number<br>
+		to the information in that file. THIS IS SADLY CASE-SENSITIVE FOR NOW, SUE ME.<br>
+		Very basic stuff here, but this was actually quite<br>
+		difficult for me to create, involving an undoubtedly ineffecient series of opening<br>
+		and closing input and output filestreams. One great thing about creating a text-based<br>
+		game like this is its going to run practically instantly anyways so optimization is<br>
+		not a great concern of mine.</p>
+		<img src="Images/4_2025/24_f02.png" alt="Console with player input 'north' and 'south'"</img>
+		<p>Here we see some basic room-to-room movement. Again, all player input is case-<br>
+		sensitive, will fix EVENTUALLY(probably).<br>
+		Originally, I wanted to give each room an x and y value, creating a coordinate system,<br>
+		but this doesn't really work well with secret rooms or, you know, MOVING DIAGONALLY,<br>
+		so I went with a simple room number system. Don't re-invent the wheel, right?</p>
+		<img src="Images/4_2025/24_f04.png" alt="C++ snippet"></img>
+		<p>Here we see the actual room logic, which used to look VERY BAD(you'll see in a bit).<br>
+		if (getPlayerInput(playerInput)) basically checks to see if the player's input is general<br>
+		(help, quit, etc., non-room-specific commands)and if it is, it returns the room input function<br>
+		early. If the game receives room-specific input or an invalid command, it continues as normal.</p>
+		<img src="Images/4_2025/24_f03.png" alt="SlayTheOrcKing.cpp snippet"></img>
+		<p>Using a map was actually copilot's idea(seeing as I didn't even know what a map<br>
+		was at the time), but don't worry, I'm not just mindlessly copy-pasting here, <br>
+		rather I took the time to actually learn how this code works before implementing it.<br>
+		I use copilot a lot for debugging. When it comes to feature implemenation, I want to<br>
+		at least learn something and not just add code that I don't even understand.<br>
+		That said, this works quite well.</p>
+		<img src="Images/4_2025/24_f05.png" alt="VERY BAD CODE"></img>
+		<p>When I say I "cleaned up" my code I mean I took a hyper-nested abomination<br>
+		and made it slightly more tolerable. Just look at this room logic prior to denesting.<br>
+		This is part of an ongoing effort to clean and beautify my code. What you just witnessed is FAR<br>
+		from the worst nesting in my code. You absolutely do NOT want to see how bad it gets. Of course,<br>
+		I'm going to show you anyways...in the next devlog(maybe, my priorities tend to get jumbled).</p>
+		</div>
+
+		<p id="end"> This is the end of my website. If you have read this far, you<br>
+		should know that I don't care enough to implement a decent looking bottom<br>
+		margin for this website right now. LEAVE ME ALONE.</p>
+	</body>
+</html>
