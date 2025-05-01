@@ -27,27 +27,10 @@ a {
     display: block;
 }
 
-.main {
-	text-align: center;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	border-top: 0px;
-	border-bottom: 0px;
-	margin: auto;
-	background-color: #454545;
-	width: 70%;
-	box-sizing: border-box;
-}
-
-#small-page {
-	height: 100%;
-}
-
 body {
-  background-image: url('bg.png');
-  background-size: 1920px 1080px;
-  background-attachment: fixed;
+  background-color: #454545;
  }
+
  
  h1 {	 
 	 color: #8075ff;
