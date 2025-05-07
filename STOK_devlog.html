@@ -1,24 +1,29 @@
 <html>
 
-        <head>  
-                <title>Robin Wells</title>
-                 <link rel="stylesheet" href="styles.css">
-                   <link rel="icon" href="icon.ico" type="image/x-icon">          
-        </head>  
+<head>	
+       		<title>Robin Wells</title>
+		 <link rel="stylesheet" href="styles.css">
+		   <link rel="icon" href="icon.ico" type="image/x-icon">
+		<script src="main.js" defer></script>
+	</head>
 
 	<body>
 			<div id="nav">
 				<a href="index.html">Home</a>
-				<a href="STOK_devlog.html">Slay The Orc King</a>
+				<select id="devlogMenu">
+					<option>Devlogs</option>                                                                              4
+					<option id="STOK_devlog" value="STOK_devlog.html">STOK</option>
+					<option id="FALCON_devlog" value="FALCON_devlog.html">Falcon</option>
+				</select>
 				<a href="about.html">About</a>
 				<a href="https://github.com/bruce835">Github</a>
-			</div>	
+			</div>
 
 			<br>
 			<br>
 			<h2>The Creation of Slay The Orc King</h2>
 		
-		<p id="STOK_DEVLOG_INTRO">
+		<p class="DEVLOG_INTRO">
 			Slay The Orc King is a WIP text-based adventure rpg created by yours truly<br>
 			for the primary purpose of teaching myself C++. Ironically, I'm unlikely to<br>
 			use this knowledge for its originally intended purpose because while I <br>

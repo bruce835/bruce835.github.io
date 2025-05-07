@@ -16,6 +16,18 @@ a {
 	 padding-right: 15px;
 }
 
+#devlogMenu {	
+	font-size: 18px;
+	text-decoration: none;
+	 color: #08c870;
+	 padding-top: 10px;
+	 padding-bottom: 10px;
+	 padding-left: 15px;
+	 padding-right: 15px;
+	background: none;
+	border: none;
+}
+
 .inL-a {
 	padding: 0;
 }
@@ -44,7 +56,7 @@ h2 {
 	text-align: center;
  }
 
- #STOK_DEVLOG {
+.DEVLOG_INTRO {
 }
 
  p {
