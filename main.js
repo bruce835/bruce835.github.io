@@ -1,4 +1,4 @@
-document.getElementById('STOK_devlog').addEventListener('click', function() {
+/*document.getElementById('STOK_devlog').addEventListener('click', function() {
     window.location.href = this.value;
 });
 
