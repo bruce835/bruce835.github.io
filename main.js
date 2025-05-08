@@ -6,3 +6,5 @@ document.getElementById('FALCON_devlog').addEventListener('click', function() {
     window.location.href = this.value;
 });
 
+document.querySelectorAll("link[href='styles.css']").remove();
+
