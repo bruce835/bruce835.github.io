@@ -2,6 +2,7 @@
 p #08906B
 h #A16FA7
 bg #53FCCF*/
+@import "tailwindcss";
 * {
 	padding: 0;
 	margin: 0;
