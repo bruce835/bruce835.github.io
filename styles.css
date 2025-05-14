@@ -3,6 +3,9 @@ p #08906B
 h #A16FA7
 bg #53FCCF*/
 @import "tailwindcss";
+@import "./fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
@@ -41,6 +44,7 @@ a {
 }
 
 body {
+  font-family: "Iceland", sans-serif !important;
   background-color: #454545;
  }
 

@@ -155,7 +155,18 @@
     display: none !important;
   }
 }
-@layer utilities;
+@layer utilities {
+  .font-\[Iceland\] {
+    font-family: Iceland;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -189,6 +200,7 @@ a {
   display: block;
 }
 body {
+  font-family: "Iceland", sans-serif !important;
   background-color: #454545;
 }
 h1 {
