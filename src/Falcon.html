@@ -1,0 +1,106 @@
+<html>
+	<head>	
+       		<title>Robin Wells</title>
+		<link rel="stylesheet" href="output.css">
+		<link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iceland&display=swap">
+		<script src="main.js" defer></script>
+	</head>
+
+	<body>
+			<div id="nav">
+				<a href="index.html">Home</a>
+				<select id="devlogMenu">
+					<option>Devlogs</option>                                                                					<option id="STOK_devlog" value="STOK_devlog.html">STOK</option>
+					<option id="FALCON_devlog" value="FALCON_devlog.html">Falcon</option>
+				</select>
+				<a href="about.html">About</a>
+        <a href="https://github.com/bruce835" target="_blank" rel="noopener noreferrer">Github</a>
+        <a href="Falcon.html">Falcon Docs</a>
+			</div>
+
+			<br>
+			<br>
+
+      <h1>Documentation</h1>
+      <h2>For the Falcon programming language(wip)</h2>
+
+      <p>Provided I don't abandon this project, this page will one day be populated with<br>
+      links to various pages. One thing I want to make sure I get right about the Falcon<br>
+      project is the documentation. No confusing, niche examples, no enless seas of text<br>
+      that you can't be bothered to read. Simple and straight to the point, yet thorough.</p>
+
+      <h3>Brief Overview</h3>
+
+      <p>Falcon syntax will draw heavily from C++, but with an aim to be as simple, consistent,<br>
+      and coder-friendly as possible. It will be built with an aim on functional programming,<br>
+      however I also want to support my own take on object-oriented programming: "Winging".</p>
+
+      <p>What is a wing? A wing is basically a box of information. When you attach an object<br>
+      to a wing, you are not forcing that object into the box; rather, the object rides on<br>
+      the wing, able to gain access to its information without being forced to follow<br>
+      strict rules. I have yet to fully flesh out how these will work, and I haven't even begun<br>
+      to implement them, but they have been my plan from the very start.</p>
+
+      <h3>Design Principles</h3>
+      <p>Below are the core principles of Falcon and key frustrations<br>
+      I plan to address with it.</p>\
+
+      <ol>
+        <li>1. Rigid hierarchies should not be enforced.</li>
+        <p>Objects and subclasses shouldn't be made to strictly fit their parents.</p>
+        <li>2. Let verbs be verbs.</li>
+        <p>No weird objects like fstream. Objects should be used to represent complex data<br>
+        structures or real-world objects, not simple instruction sets.</p>
+        <li>3. Modularity</li>
+        <p>Objects should be able to easily pick and choose what they want from<br>
+        a class without being made a child object or having to create a new local object of that class.</p>
+      </ol>
+
+      <p>I will likely expand on these at a later date, but these are the main ideas.</p>
+
+      <h3>The Fun Stuff</h3>
+      <p>Currently there is almost no syntax, as I've mostly been setting up boilerplate<br>
+      and libraries. However, one can define a function "main" with a return type of int and<br>
+      print to the console with a string literal. 1 is automatically the return value, and I<br> 
+      have not yet set up an actual return function, which, in retrospect, should have been<br>
+      prioritized over creating the print() function. Additionally, the generated .asm and<br>
+      .o files are fixed with the names "example.asm" and "example.o". Now, let's write our<br>
+      first function in Falcon! Create a file with the .flcn extension and open it in a text<br>
+      editor. To declare a function that returns an integer, lets write "int".</p> 
+      <img src="../Images/Falcon_docs/f01.png"></img>
+      <p>We'll need a main function to start our program. Let's write "main".</p>
+      <img src="../Images/Falcon_docs/f02.png"></img>
+      <p>Parantheses! This will compile regardless of what parameters we give, but nothing will happen,<br>
+      so lets just ignore this for now.</p>
+      <img src="../Images/Falcon_docs/f03.png"></img>
+      <p>In curly braces, we can write the instructions for main!<br>
+      Let's write"print()" with our desired text in double quotes:</p>
+      <img src="../Images/Falcon_docs/f04.png"></img>
+      <p>Rememeber the semicolon at the end, and congrats! You've written your<br>
+      first program in Falcon!</p>
+
+      <h3>The Boring Stuff</h3> 
+      <p>Now, how do we use the Falcon compiler? (Note that the<br>
+      falcon compiler is a linux exectuable, and you currently<br>
+      have to compile the compiler yourself if you are using macOS. The compiler will not work on windows, as<br>
+      it currently only knows the syscalls for linux and macOS.) First run the falcon<br>
+      exectuable.</p>
+      <img src="../Images/Falcon_docs/f05.png"></img>
+      <p>This generates the assembly(and prints a beautiful parse tree), but not the .o file. The assembly generated<br>
+      is nasm x86. An easy way to run the falcon "compiler" and necessary nasm and ld<br>
+      commands all at once is to execute one of the provided bash scripts (run_liunux.sh<br>
+      and run_macos.sh).</p>
+      <img src="../Images/Falcon_docs/f06.png"></img>
+      <p>And now, for the end result:</p>
+      <img src="../Images/Falcon_docs/f07.png"></img>
+      <p>Congrats! You just wrote your first Falcon program! If only you know the<br>
+      pain that went into making this possible. Thats what I get for trying to make<br>
+      my own programming language with almost zero coding experience :)</p>
+
+    <div id="end">
+      <a href="FALCON_devlog.html" target="_blank" rel="noopener noreferrer">Falcon</a>
+      <a href="STOK_devlog.html" target="_blank" rel="noopener noreferrer">Slay The Orc King</a>
+    </div>
+	</body>
+</html>

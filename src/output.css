@@ -156,6 +156,9 @@
   }
 }
 @layer utilities {
+  .list-disc {
+    list-style-type: disc;
+  }
   .font-\[Iceland\] {
     font-family: Iceland;
   }
@@ -224,6 +227,13 @@ h3 {
   color: #8075ff;
   font-size: 25px;
   text-align: center;
+}
+ul, ol {
+  font-size: 25px;
+  color: #08c870;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #post {
   border-top: 20px;
