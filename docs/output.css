@@ -156,8 +156,8 @@
   }
 }
 @layer utilities {
-  .list-disc {
-    list-style-type: disc;
+  .fixed {
+    position: fixed;
   }
   .font-\[Iceland\] {
     font-family: Iceland;

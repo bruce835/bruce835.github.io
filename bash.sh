@@ -1,2 +1,2 @@
 clear
-npx @tailwindcss/cli -i src/styles.css -o src/output.css
+npx @tailwindcss/cli -i docs/styles.css -o docs/output.css
